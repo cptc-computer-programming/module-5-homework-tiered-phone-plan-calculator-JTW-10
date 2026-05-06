@@ -16,6 +16,14 @@ overage_data = user_data - TIER_1_DATA_LIMIT_GB
 
 if user_data <= TIER_1_DATA_LIMIT_GB:
     final_overage_cost = final_overage_cost
-elif user_data > TIER_1_DATA_LIMIT_GB and <= TIER_2_DATA_LIMIT_GB:
+elif user_data > TIER_1_DATA_LIMIT_GB and user_data <= TIER_2_DATA_LIMIT_GB:
     if has_premium:
         final_overage_cost = PREMIUM_USER_OVERAGE_RATE_TIER_2 * overage_data
+    else:
+        final_overage_cost = REGULAR_USER_OVERAGE_RATE_TIER_2 * overage_data
+else:
+    if has_premium:
+        final_overage_cost = PREMIUM_USER_OVERAGE_RATE_TIER_3 * overage_data
+    else:
+        final_overage_cost = REGULAR_USER_OVERAGE_RATE_TIER_3 * overage_data
+
