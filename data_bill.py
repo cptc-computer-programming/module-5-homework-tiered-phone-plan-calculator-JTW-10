@@ -8,3 +8,5 @@ REGULAR_USER_OVERAGE_RATE_TIER_3 = 3
 
 
 # Your code goes here:
+USER_DATA_USED = float(input("Please enter the data you have used (GB): "))
+print(f"You have used {USER_DATA_USED} GB.")
