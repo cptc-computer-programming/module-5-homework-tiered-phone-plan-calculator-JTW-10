@@ -5,7 +5,7 @@ PREMIUM_USER_OVERAGE_RATE_TIER_2 = 1
 REGULAR_USER_OVERAGE_RATE_TIER_2 = 2
 PREMIUM_USER_OVERAGE_RATE_TIER_3 = 2
 REGULAR_USER_OVERAGE_RATE_TIER_3 = 3
-FINAL_OVERAGE_COST = 0
+final_overage_cost = 0
 
 # Your code goes here:
 user_data = float(input("Please enter the data you have used (GB): "))
@@ -13,3 +13,9 @@ base_plan_cost = float(input("Please enter your base monthly plan cost: "))
 has_premium = input("Do you have a premium plan? (yes/no): ") == "yes"
 
 overage_data = user_data - TIER_1_DATA_LIMIT_GB
+
+if user_data <= TIER_1_DATA_LIMIT_GB:
+    final_overage_cost = final_overage_cost
+elif user_data > TIER_1_DATA_LIMIT_GB and <= TIER_2_DATA_LIMIT_GB:
+    if has_premium:
+        final_overage_cost = PREMIUM_USER_OVERAGE_RATE_TIER_2 * overage_data
