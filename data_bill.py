@@ -27,3 +27,13 @@ else:
     else:
         final_overage_cost = REGULAR_USER_OVERAGE_RATE_TIER_3 * overage_data
 
+total_cost = base_plan_cost + final_overage_cost
+
+if user_data > 10:
+    print(f"\nYou are {overage_data:.2f} GB over your data limit.")
+else:
+    print("You are within your data limit.")
+
+print(f"Overage Cost: ${final_overage_cost:.2f}")
+print(f"Total Bill: ${total_cost}")
+
